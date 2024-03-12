@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://csaga4ll0fr81"]
+
+[ext_resource type="ArrayMesh" uid="uid://85hb2r0k2ciq" path="res://Meshes/Crate.obj" id="1_8thhq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rb33a"]
+size = Vector3(5, 2, 2)
+
+[node name="Crate" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_rb33a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_8thhq")

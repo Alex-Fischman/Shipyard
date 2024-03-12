@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfvcvana38t4t"]
+
+[ext_resource type="PackedScene" uid="uid://csaga4ll0fr81" path="res://Scenes/Crate.tscn" id="1_kqox6"]
+[ext_resource type="PackedScene" uid="uid://bbfnsxh6qqmds" path="res://Scenes/Player.tscn" id="2_h3igg"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("2_h3igg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+
+[node name="Floor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="Crate" parent="Floor" instance=ExtResource("1_kqox6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Crate2" parent="Floor" instance=ExtResource("1_kqox6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Crate3" parent="Floor" instance=ExtResource("1_kqox6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Crate4" parent="Floor" instance=ExtResource("1_kqox6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="Crate5" parent="Floor" instance=ExtResource("1_kqox6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="Crate6" parent="Floor" instance=ExtResource("1_kqox6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="Crate7" parent="Floor" instance=ExtResource("1_kqox6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -1)
+
+[node name="Crate8" parent="Floor" instance=ExtResource("1_kqox6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 1)
+
+[node name="Crate9" parent="Floor" instance=ExtResource("1_kqox6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3)
+
+[node name="Crate10" parent="Floor" instance=ExtResource("1_kqox6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 5)
+
+[node name="Crate11" parent="Floor" instance=ExtResource("1_kqox6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4, -5)
+
+[node name="Crate12" parent="Floor" instance=ExtResource("1_kqox6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3, -3)
+
+[node name="Crate13" parent="Floor" instance=ExtResource("1_kqox6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -1)
+
+[node name="Crate14" parent="Floor" instance=ExtResource("1_kqox6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 1)
+
+[node name="Crate15" parent="Floor" instance=ExtResource("1_kqox6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 3)
+
+[node name="Crate16" parent="Floor" instance=ExtResource("1_kqox6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5)
+
+[node name="Crate17" parent="Floor" instance=ExtResource("1_kqox6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4, -5)
+
+[node name="Crate18" parent="Floor" instance=ExtResource("1_kqox6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, -3)
+
+[node name="Sunlight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-4.37114e-08, -0.866025, 0.5, 0, 0.5, 0.866025, -1, 3.78552e-08, -2.18557e-08, 0, 10, 0)
