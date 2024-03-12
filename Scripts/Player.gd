@@ -22,9 +22,3 @@ func _physics_process(delta: float) -> void:
 	velocity.x = direction.x
 	velocity.z = direction.z
 	move_and_slide()
-
-func _unhandled_input(event):
-	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		self.rotate_y(-event.relative.x * sensitivity)
-		target.rotate_x(-event.relative.y * sensitivity)
-		target.rotation.x = clamp(target.rotation.x, -1.2, 1.2)

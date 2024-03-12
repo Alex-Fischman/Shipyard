@@ -22,7 +22,9 @@ mesh = SubResource("CapsuleMesh_mj2w3")
 [node name="CameraPosition" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="Camera" type="Camera3D" parent="CameraPosition" node_paths=PackedStringArray("target")]
+[node name="Camera" type="Camera3D" parent="CameraPosition" node_paths=PackedStringArray("target", "player")]
 fov = 90.0
 script = ExtResource("1_gllo7")
 target = NodePath("..")
+player = NodePath("../..")
+sensitivity = 0.005
