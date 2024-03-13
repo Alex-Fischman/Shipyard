@@ -2,21 +2,21 @@
 
 [ext_resource type="Script" path="res://Scripts/Rope.gd" id="1_rrual"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b4odg"]
-radius = 0.01
-height = 1.0
-
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ofrkf"]
 radius = 0.01
-height = 1.0
 
-[node name="Rope" type="StaticBody3D"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b4odg"]
+radius = 0.01
+
+[node name="Rope" type="Node3D"]
 script = ExtResource("1_rrual")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.5)
-shape = SubResource("CapsuleShape3D_b4odg")
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, -0.5)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.5)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("CapsuleMesh_ofrkf")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("CapsuleShape3D_b4odg")
