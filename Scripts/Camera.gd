@@ -7,7 +7,7 @@ extends Camera3D
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	self.global_transform = target.global_transform
 
 func _unhandled_input(event: InputEvent) -> void:

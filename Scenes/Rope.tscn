@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdxj633vpp5jm"]
+
+[ext_resource type="Script" path="res://Scripts/Rope.gd" id="1_rrual"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b4odg"]
+radius = 0.01
+height = 1.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ofrkf"]
+radius = 0.01
+height = 1.0
+
+[node name="Rope" type="StaticBody3D"]
+script = ExtResource("1_rrual")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.5)
+shape = SubResource("CapsuleShape3D_b4odg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.5)
+mesh = SubResource("CapsuleMesh_ofrkf")
