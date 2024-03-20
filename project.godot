@@ -51,6 +51,11 @@ jump={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Main"
+3d_physics/layer_2="Rope"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
