@@ -49,12 +49,6 @@ func _physics_process(delta: float) -> void:
 
 	self.velocity.y = vertical
 
-	if self.is_on_wall_only() and jump_pressed:
-		self.velocity.y = JUMP_IMPULSE / 2
-		self.velocity -= self.velocity.project(self.get_wall_normal())
-		self.velocity += JUMP_IMPULSE / 2 * self.get_wall_normal()
-		jump_pressed = false
-
 	if mouse_down:
 		if current_target == null:
 			if ROPE_CAST.is_colliding():
