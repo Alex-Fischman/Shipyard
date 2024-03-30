@@ -4,8 +4,10 @@
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_mh0dp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_abh8k"]
+height = 1.9
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mj2w3"]
+height = 1.9
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j3g1t"]
 

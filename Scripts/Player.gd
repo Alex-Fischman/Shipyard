@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 				rope_length = self.global_position.distance_to(grapple_point)
 
 		if current_target != null:
-			grapple_point = compute_grapple_point(delta)
+			grapple_point = compute_grapple_point()
 
 			var distance: float = self.global_position.distance_to(grapple_point)
 			if distance > rope_length:
@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 			current_target = null
 			grapple_rope = null
 
-func compute_grapple_point(delta: float) -> Vector3:
+func compute_grapple_point() -> Vector3:
 	var a: Vector3 = current_target.get("a").global_position
 	var b: Vector3 = current_target.get("b").global_position
 	var c: Vector3 = self.global_position
