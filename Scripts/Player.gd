@@ -6,9 +6,12 @@ extends CharacterBody3D
 @export var MOVE_ACCEL: float
 
 @export var ROPE_CAST: ShapeCast3D
+var ROPE_WITH_ENDPOINTS: PackedScene = preload("res://Scenes/RopeWithEndpoints.tscn")
 
-var current_target: Node = null
 var mouse_down: bool = false
+var current_target: Node3D = null
+var grapple_rope: Node3D = null
+var grapple_point: Vector3
 
 func _physics_process(delta: float) -> void:
 	var MOVE_SPEED: float = JUMP_DIST / JUMP_TIME
@@ -39,11 +42,21 @@ func _physics_process(delta: float) -> void:
 			if ROPE_CAST.is_colliding():
 				current_target = ROPE_CAST.get_collider(0)
 				current_target = current_target.get_parent()
+				grapple_rope = ROPE_WITH_ENDPOINTS.instantiate()
+				grapple_point = ROPE_CAST.get_collision_point(0)
+				self.get_tree().get_root().add_child(grapple_rope)
 
 		if current_target != null:
 			current_target.get_node("StaticBody3D").call("targeted")
+			var a: Node3D = grapple_rope.get_node("A")
+			a.global_position = self.global_position
+			var b: Node3D = grapple_rope.get_node("B")
+			b.global_position = grapple_point
 	else:
-		current_target = null
+		if current_target != null:
+			grapple_rope.queue_free()
+			current_target = null
+			grapple_rope = null
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:

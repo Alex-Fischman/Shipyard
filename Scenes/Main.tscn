@@ -8,7 +8,6 @@
 
 [node name="Player" parent="." instance=ExtResource("2_h3igg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
-MOVE_ACCEL = 50.0
 
 [node name="Floor" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)

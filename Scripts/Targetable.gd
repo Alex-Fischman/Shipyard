@@ -18,7 +18,7 @@ func _ready() -> void:
 func targeted() -> void:
 	last_targeted = Time.get_unix_time_from_system()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var elapsed: float = Time.get_unix_time_from_system() - last_targeted
 	var threshold: float = self.get_physics_process_delta_time() * 2.0
 	MESH.material_override = on_material if elapsed < threshold else off_material

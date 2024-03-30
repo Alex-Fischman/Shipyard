@@ -14,6 +14,7 @@ script = ExtResource("1_mh0dp")
 JUMP_DIST = 5.0
 JUMP_HEIGHT = 2.0
 JUMP_TIME = 1.0
+MOVE_ACCEL = 50.0
 ROPE_CAST = NodePath("CameraPosition/RopeCast")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
