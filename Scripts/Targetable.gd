@@ -8,12 +8,6 @@ func targeted() -> void:
 	last_targeted = Time.get_unix_time_from_system()
 
 func _process(delta: float) -> void:
-	var time: float = clamp(Time.get_unix_time_from_system() - last_targeted, 0, 1) * 0.1
-
-	var target_value: float = 1 if time < 0.05 else 0
-	var original_value: float = 1 - target_value
-	var current_value: float = original_value + (target_value - original_value) * time
-
 	if Time.get_unix_time_from_system() - last_targeted < self.get_physics_process_delta_time():
 		current_value = 1
 	else:
