@@ -12,6 +12,7 @@ var mouse_down: bool = false
 var current_target: Node3D = null
 var grapple_rope: Node3D = null
 var grapple_point: Vector3
+var rope_slip_velocity: float
 
 func _physics_process(delta: float) -> void:
 	var MOVE_SPEED: float = JUMP_DIST / JUMP_TIME
@@ -43,10 +44,13 @@ func _physics_process(delta: float) -> void:
 				current_target = ROPE_CAST.get_collider(0)
 				current_target = current_target.get_parent()
 				grapple_rope = ROPE_WITH_ENDPOINTS.instantiate()
-				grapple_point = ROPE_CAST.get_collision_point(0)
 				self.get_tree().get_root().add_child(grapple_rope)
+				grapple_point = ROPE_CAST.get_collision_point(0)
+				rope_slip_velocity = 0
 
 		if current_target != null:
+			grapple_point = compute_grapple_point(delta)
+
 			current_target.get_node("StaticBody3D").call("targeted")
 			var a: Node3D = grapple_rope.get_node("A")
 			a.global_position = self.global_position
@@ -57,6 +61,27 @@ func _physics_process(delta: float) -> void:
 			grapple_rope.queue_free()
 			current_target = null
 			grapple_rope = null
+
+func compute_grapple_point(delta: float) -> Vector3:
+	var a: Vector3 = current_target.get("a").global_position
+	var b: Vector3 = current_target.get("b").global_position
+	var c: Vector3 = self.global_position
+	var ab: Vector3 = b - a
+	var ac: Vector3 = c - a
+	var x: float = clamp(ab.dot(ac) / ab.dot(ab), 0, 1)
+	var y: float = a.distance_to(grapple_point) / a.distance_to(b)
+
+	y += delta * rope_slip_velocity
+	rope_slip_velocity += delta * (x - y - rope_slip_velocity / (2 * PI)) * (4 * PI * PI)
+
+	if y < 0:
+		y = 0
+		rope_slip_velocity = 0
+	if y > 1:
+		y = 1
+		rope_slip_velocity = 0
+
+	return a + ab * y
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
