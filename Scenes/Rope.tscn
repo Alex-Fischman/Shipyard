@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdxj633vpp5jm"]
+[gd_scene load_steps=6 format=3 uid="uid://bdxj633vpp5jm"]
 
 [ext_resource type="Script" path="res://Scripts/Rope.gd" id="1_rrual"]
+[ext_resource type="Script" path="res://Scripts/Targetable.gd" id="2_mnp38"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ciunw"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ofrkf"]
+material = SubResource("StandardMaterial3D_ciunw")
 radius = 0.01
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b4odg"]
@@ -11,9 +15,11 @@ radius = 0.01
 [node name="Rope" type="Node3D"]
 script = ExtResource("1_rrual")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("MESH")]
 transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, -0.5)
 collision_layer = 2
+script = ExtResource("2_mnp38")
+MESH = NodePath("MeshInstance3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("CapsuleMesh_ofrkf")

@@ -5,6 +5,10 @@ extends CharacterBody3D
 @export var JUMP_TIME: float
 @export var MOVE_ACCEL: float
 
+@export var ROPE_CAST: ShapeCast3D
+
+var current_target: Node = null
+
 func _physics_process(delta: float) -> void:
 	var MOVE_SPEED: float = JUMP_DIST / JUMP_TIME
 	var GRAVITY_FORCE: float = 8 * JUMP_HEIGHT / JUMP_TIME / JUMP_TIME
@@ -28,3 +32,8 @@ func _physics_process(delta: float) -> void:
 
 	velocity.y = vertical
 	move_and_slide()
+
+	if ROPE_CAST.is_colliding():
+		current_target = ROPE_CAST.get_collider(0)
+		current_target.call("targeted")
+		current_target = current_target.get_parent()
