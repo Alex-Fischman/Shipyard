@@ -13,6 +13,7 @@ var current_target: Node3D = null
 var grapple_rope: Node3D = null
 var grapple_point: Vector3
 var rope_slip_velocity: float
+var rope_length: float
 
 func _physics_process(delta: float) -> void:
 	var MOVE_SPEED: float = JUMP_DIST / JUMP_TIME
@@ -47,9 +48,14 @@ func _physics_process(delta: float) -> void:
 				self.get_tree().get_root().add_child(grapple_rope)
 				grapple_point = ROPE_CAST.get_collision_point(0)
 				rope_slip_velocity = 0
+				rope_length = self.global_position.distance_to(grapple_point)
 
 		if current_target != null:
 			grapple_point = compute_grapple_point(delta)
+
+			var distance: float = self.global_position.distance_to(grapple_point)
+			if distance > rope_length:
+				self.global_position = self.global_position.move_toward(grapple_point, distance - rope_length)
 
 			current_target.get_node("StaticBody3D").call("targeted")
 			var a: Node3D = grapple_rope.get_node("A")
