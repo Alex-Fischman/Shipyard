@@ -25,7 +25,7 @@ func _physics_process(delta: float) -> void:
 	var vertical: float = velocity.y
 	velocity.y = 0
 
-	if is_on_floor():
+	if self.is_on_floor():
 		if Input.is_action_just_pressed("jump"):
 			vertical = JUMP_IMPULSE
 		else:
@@ -37,10 +37,13 @@ func _physics_process(delta: float) -> void:
 	var move_accel: float = MOVE_ACCEL if self.is_on_floor() else AIR_MOVE_ACCEL
 	var move_friction: float = MOVE_FRICTION if self.is_on_floor() else AIR_MOVE_FRICTION
 	var direction: Vector3 = self.transform.basis * Vector3(input.x, 0, input.y) * move_accel
-	velocity += (direction - velocity * move_friction) * delta
+	self.velocity += (direction - velocity * move_friction) * delta
 
-	velocity.y = vertical
-	move_and_slide()
+	self.velocity.y = vertical
+
+	if self.is_on_wall_only() and Input.is_action_just_pressed("jump"):
+		self.velocity.y += JUMP_IMPULSE / 2
+		self.velocity += JUMP_IMPULSE / 2 * self.get_wall_normal()
 
 	if mouse_down:
 		if current_target == null:
@@ -72,6 +75,8 @@ func _physics_process(delta: float) -> void:
 			grapple_rope.queue_free()
 			current_target = null
 			grapple_rope = null
+
+	self.move_and_slide()
 
 func compute_grapple_point() -> Vector3:
 	var a: Vector3 = current_target.get("a").global_position
