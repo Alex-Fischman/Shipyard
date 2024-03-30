@@ -10,12 +10,19 @@ extends CharacterBody3D
 var ROPE_WITH_ENDPOINTS: PackedScene = preload("res://Scenes/RopeWithEndpoints.tscn")
 
 var mouse_down: bool = false
+var jump_pressed: bool = false
+
 var current_target: Node3D = null
 var grapple_rope: Node3D = null
 var grapple_point: Vector3
 var rope_length: float
 
 func _physics_process(delta: float) -> void:
+	if not Input.is_action_pressed("jump"):
+		jump_pressed = false
+	if Input.is_action_just_pressed("jump"):
+		jump_pressed = true
+
 	var MOVE_SPEED: float = JUMP_DIST / JUMP_TIME
 	var MOVE_FRICTION: float = MOVE_ACCEL / MOVE_SPEED
 	var AIR_MOVE_FRICTION: float = MOVE_SPEED / AIR_MOVE_ACCEL
@@ -26,8 +33,9 @@ func _physics_process(delta: float) -> void:
 	velocity.y = 0
 
 	if self.is_on_floor():
-		if Input.is_action_just_pressed("jump"):
+		if jump_pressed:
 			vertical = JUMP_IMPULSE
+			jump_pressed = false
 		else:
 			vertical = 0
 	else:
@@ -41,9 +49,11 @@ func _physics_process(delta: float) -> void:
 
 	self.velocity.y = vertical
 
-	if self.is_on_wall_only() and Input.is_action_just_pressed("jump"):
-		self.velocity.y += JUMP_IMPULSE / 2
+	if self.is_on_wall_only() and jump_pressed:
+		self.velocity.y = JUMP_IMPULSE / 2
+		self.velocity -= self.velocity.project(self.get_wall_normal())
 		self.velocity += JUMP_IMPULSE / 2 * self.get_wall_normal()
+		jump_pressed = false
 
 	if mouse_down:
 		if current_target == null:
