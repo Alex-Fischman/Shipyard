@@ -69,7 +69,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 5, 16)
 [node name="RopeWithEndpoints" type="Node3D" parent="."]
 
 [node name="Rope" parent="RopeWithEndpoints" node_paths=PackedStringArray("a", "b") instance=ExtResource("3_ib6hg")]
-transform = Transform3D(-0.999843, -0.00500665, 0.500001, 0, 0.959244, 8.31325, -0.0177178, 0.282534, -28.2159, -8, 14.0873, -12.5896)
+transform = Transform3D(-0.999843, -0.00500667, 0.5, 0, 0.959244, 8.31326, -0.0177178, 0.282535, -28.2158, -8, 14.0873, -12.5896)
 a = NodePath("../A")
 b = NodePath("../B")
 
@@ -238,7 +238,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 11,
 [node name="RopeWithEndpoints3" type="Node3D" parent="."]
 
 [node name="Rope" parent="RopeWithEndpoints3" node_paths=PackedStringArray("a", "b") instance=ExtResource("3_ib6hg")]
-transform = Transform3D(0.081908, 0.0318281, 7.64226, 0, 0.99949, -0.245007, -0.99664, 0.00261576, 0.628073, 3.5, 11.8, -4)
+transform = Transform3D(0.0819076, 0.0318272, 7.64226, 0, 0.99949, -0.245, -0.99664, 0.00261568, 0.62807, 3.5, 11.8, -4)
 a = NodePath("../A")
 b = NodePath("../B")
 
@@ -251,7 +251,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.14226, 12.045, -4.62807)
 [node name="RopeWithEndpoints2" type="Node3D" parent="."]
 
 [node name="Rope" parent="RopeWithEndpoints2" node_paths=PackedStringArray("a", "b") instance=ExtResource("3_ib6hg")]
-transform = Transform3D(-0.2232, -0.00383599, 8, 0, 0.999992, 0.0322971, -0.974773, 0.00087835, -1.83181, 3.5, 13.8659, -12.434)
+transform = Transform3D(-0.223199, -0.00383633, 8, 0, 0.999992, 0.0323, -0.974773, 0.000878424, -1.8318, 3.5, 13.8659, -12.434)
 a = NodePath("../A")
 b = NodePath("../B")
 
@@ -264,7 +264,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 13.8336, -10.6022)
 [node name="RopeWithEndpoints4" type="Node3D" parent="."]
 
 [node name="Rope" parent="RopeWithEndpoints4" node_paths=PackedStringArray("a", "b") instance=ExtResource("3_ib6hg")]
-transform = Transform3D(-0.00358144, -0.0149414, 6, 0, 0.999888, 0.0896597, -0.999994, 5.35122e-05, -0.0214888, 3.5, 10.5467, 0.252622)
+transform = Transform3D(-0.00358156, -0.0149314, 6, 0, 0.999889, 0.0895996, -0.999994, 5.34781e-05, -0.0214895, 3.5, 10.5467, 0.252622)
 a = NodePath("../A")
 b = NodePath("../B")
 
@@ -277,7 +277,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 10.4571, 0.274112)
 [node name="RopeWithEndpoints5" type="Node3D" parent="."]
 
 [node name="Rope" parent="RopeWithEndpoints5" node_paths=PackedStringArray("a", "b") instance=ExtResource("3_ib6hg")]
-transform = Transform3D(-0.318975, 0.122792, 5.02213, 0, 0.991571, -0.692365, -0.947763, -0.0413264, -1.69022, 3, 9.40172, 1.79516)
+transform = Transform3D(-0.318974, 0.122795, 5.02213, 0, 0.991571, -0.69238, -0.947763, -0.0413272, -1.69022, 3, 9.40172, 1.79516)
 a = NodePath("../A")
 b = NodePath("../B")
 
@@ -290,7 +290,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02213, 10.0941, 3.48538)
 [node name="RopeWithEndpoints6" type="Node3D" parent="."]
 
 [node name="Rope" parent="RopeWithEndpoints6" node_paths=PackedStringArray("a", "b") instance=ExtResource("3_ib6hg")]
-transform = Transform3D(0.0400786, 0.098996, -5.51482, 0, 0.99508, 0.549527, 0.999197, -0.00397081, 0.221204, -2.16269, 7.64272, 6.05215)
+transform = Transform3D(0.0400797, 0.0989965, -5.51482, 0, 0.99508, 0.54953, 0.999196, -0.00397094, 0.22121, -2.16269, 7.64272, 6.05215)
 a = NodePath("../A")
 b = NodePath("../B")
 

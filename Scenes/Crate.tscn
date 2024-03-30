@@ -1,14 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://csaga4ll0fr81"]
+[gd_scene load_steps=5 format=3 uid="uid://csaga4ll0fr81"]
 
 [ext_resource type="ArrayMesh" uid="uid://85hb2r0k2ciq" path="res://Meshes/Crate.obj" id="1_8thhq"]
+[ext_resource type="Script" path="res://Scripts/Crate.gd" id="1_o1ob1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rb33a"]
 size = Vector3(5, 2, 2)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5e2t"]
+albedo_color = Color(0.75, 0, 0, 1)
+
 [node name="Crate" type="StaticBody3D"]
+script = ExtResource("1_o1ob1")
+colors = Array[Color]([Color(0.8, 0.0705882, 0.0705882, 1), Color(0.109804, 0.788235, 0.109804, 1), Color(0.45, 0.725, 1, 1), Color(0.239216, 0.431373, 0.960784, 1), Color(0.968627, 0.968627, 0.968627, 1), Color(0.701961, 0.341176, 0.117647, 1), Color(0.858824, 0.858824, 0.32549, 1), Color(0.709804, 0.709804, 0.709804, 1)])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_rb33a")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_8thhq")
+surface_material_override/0 = SubResource("StandardMaterial3D_d5e2t")
