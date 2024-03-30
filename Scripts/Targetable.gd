@@ -4,18 +4,21 @@ extends StaticBody3D
 
 var last_targeted: float = -1000
 
+var off_material: StandardMaterial3D
+var on_material: StandardMaterial3D
+
+func _ready() -> void:
+	var mesh: PrimitiveMesh = MESH.mesh
+	var material: StandardMaterial3D = mesh.material
+	off_material = material
+
+	on_material = material.duplicate()
+	on_material.albedo_color = Color.CYAN
+
 func targeted() -> void:
 	last_targeted = Time.get_unix_time_from_system()
 
 func _process(delta: float) -> void:
-	if Time.get_unix_time_from_system() - last_targeted < self.get_physics_process_delta_time():
-		current_value = 1
-	else:
-		current_value = 0
-
-	var material: StandardMaterial3D = StandardMaterial3D.new()
-	material.albedo_color = Color.ORANGE.lerp(Color.BLUE, current_value)
-	material.shading_mode = BaseMaterial3D.ShadingMode.SHADING_MODE_UNSHADED
-
-	var mesh: PrimitiveMesh = MESH.mesh;
-	mesh.material = material
+	var elapsed: float = Time.get_unix_time_from_system() - last_targeted
+	var threshold: float = self.get_physics_process_delta_time() * 2.0
+	MESH.material_override = on_material if elapsed < threshold else off_material
