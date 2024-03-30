@@ -8,7 +8,6 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mj2w3"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j3g1t"]
-radius = 0.1
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("ROPE_CAST")]
 script = ExtResource("1_mh0dp")
