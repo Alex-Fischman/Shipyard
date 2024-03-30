@@ -15,6 +15,7 @@ JUMP_DIST = 5.0
 JUMP_HEIGHT = 2.0
 JUMP_TIME = 1.0
 MOVE_ACCEL = 50.0
+AIR_MOVE_ACCEL = 5.0
 ROPE_CAST = NodePath("CameraPosition/RopeCast")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -35,7 +36,7 @@ sensitivity = 0.005
 
 [node name="RopeCast" type="ShapeCast3D" parent="CameraPosition"]
 shape = SubResource("SphereShape3D_j3g1t")
-target_position = Vector3(0, 0, -5)
+target_position = Vector3(0, 0, -3)
 collision_mask = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
