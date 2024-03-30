@@ -80,3 +80,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2, -2)
 transform = Transform3D(-0.371391, 0.323254, -5, 0, 0.937437, 2, 0.928477, 0.129302, -2, -2.5, 4, -4)
 a = NodePath("../A")
 b = NodePath("../B")
+
+[node name="RopeWithEndpoints" type="Node3D" parent="."]
+
+[node name="Rope" parent="RopeWithEndpoints" node_paths=PackedStringArray("a", "b") instance=ExtResource("3_ib6hg")]
+transform = Transform3D(0.768221, -0.22955, -5, 0, 0.933503, -3, 0.640184, 0.27546, 6, -2.5, 1, 0)
+a = NodePath("../A")
+b = NodePath("../B")
+
+[node name="A" type="Node3D" parent="RopeWithEndpoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1, 0)
+
+[node name="B" type="Node3D" parent="RopeWithEndpoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 4, -6)

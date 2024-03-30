@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfm6q4wkygulf"]
+
+[ext_resource type="PackedScene" uid="uid://bdxj633vpp5jm" path="res://Scenes/Rope.tscn" id="1_dykua"]
+
+[node name="RopeWithEndpoints" type="Node3D"]
+
+[node name="Rope" parent="." node_paths=PackedStringArray("a", "b") instance=ExtResource("1_dykua")]
+a = NodePath("../A")
+b = NodePath("../B")
+
+[node name="A" type="Node3D" parent="."]
+
+[node name="B" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
