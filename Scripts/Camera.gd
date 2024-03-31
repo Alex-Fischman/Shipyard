@@ -4,9 +4,6 @@ extends Camera3D
 @export var player: Node3D
 @export var sensitivity: float
 
-func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
 func _process(_delta: float) -> void:
 	self.global_transform = target.global_transform
 

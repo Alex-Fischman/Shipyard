@@ -96,3 +96,5 @@ func _unhandled_input(event: InputEvent) -> void:
 		var e: InputEventMouseButton = event as InputEventMouseButton
 		if e.button_index == MOUSE_BUTTON_LEFT:
 			mouse_down = e.pressed
+			if not Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
