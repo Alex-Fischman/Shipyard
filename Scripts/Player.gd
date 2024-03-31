@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:
 				grapple_rope = ROPE_WITH_ENDPOINTS.instantiate()
 				self.get_tree().get_root().add_child(grapple_rope)
 				grapple_point = ROPE_CAST.get_collision_point(0)
-				rope_length = self.global_position.distance_to(grapple_point)
+				rope_length = abs(ROPE_CAST.target_position.z)
 
 		if current_target != null:
 			grapple_point = compute_grapple_point()

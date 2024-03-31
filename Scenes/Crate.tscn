@@ -11,7 +11,7 @@ albedo_color = Color(0.75, 0, 0, 1)
 
 [node name="Crate" type="StaticBody3D"]
 script = ExtResource("1_o1ob1")
-colors = Array[Color]([Color(0.8, 0.0705882, 0.0705882, 1), Color(0.109804, 0.788235, 0.109804, 1), Color(0.45, 0.725, 1, 1), Color(0.239216, 0.431373, 0.960784, 1), Color(0.968627, 0.968627, 0.968627, 1), Color(0.701961, 0.341176, 0.117647, 1), Color(0.858824, 0.858824, 0.32549, 1), Color(0.709804, 0.709804, 0.709804, 1)])
+colors = Array[Color]([Color(0.8, 0.0705882, 0.0705882, 1), Color(0.109804, 0.788235, 0.109804, 1), Color(0.239216, 0.431373, 0.960784, 1), Color(0.701961, 0.341176, 0.117647, 1), Color(0.858824, 0.858824, 0.32549, 1), Color(0.709804, 0.709804, 0.709804, 1), Color(0.411765, 0.411765, 0.411765, 1), Color(0.0651, 0.0651, 0.93, 1)])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_rb33a")
